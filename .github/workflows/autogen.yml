@@ -9,13 +9,13 @@ on:
 
 jobs:
   autogen:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -58,5 +58,3 @@ jobs:
           name: Ludere Autogen ${{ steps.date.outputs.date }}
           files: |
             app/build/outputs/apk/release/app-universal-release.apk
-
-          asset_content_type: application/zip
